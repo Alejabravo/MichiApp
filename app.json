@@ -5,20 +5,70 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFF7F0"
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.michiapp.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "MichiApp necesita la camara para tomar fotos y encender la linterna.",
+        "NSPhotoLibraryUsageDescription": "MichiApp necesita acceso a tus fotos para la foto de tu michi."
+      }
     },
     "android": {
+      "package": "com.michiapp.app",
+      "edgeToEdgeEnabled": true,
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
-      }
+        "monochromeImage": "./assets/android-icon-monochrome.png",
+        "backgroundColor": "#FFF7F0"
+      },
+      "permissions": [
+        "CAMERA",
+        "FLASHLIGHT",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "VIBRATE",
+        "SCHEDULE_EXACT_ALARM",
+        "USE_EXACT_ALARM"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "MichiApp necesita la camara para encender la linterna.",
+          "microphonePermission": false,
+          "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "MichiApp necesita acceso a tus fotos para la foto de tu michi.",
+          "cameraPermission": "MichiApp necesita la camara para tomar fotos de tu michi."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#F4A896"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "190495e9-1779-46e2-a0f6-4bca96dae36a"
+      }
     }
   }
 }
